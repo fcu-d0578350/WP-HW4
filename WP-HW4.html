@@ -1,0 +1,51 @@
+<HTML>
+<HEAD><TITLE>學院學系選擇</Title></Head>
+
+
+<from>
+
+<p>請選擇學院</p>
+
+<SELECT id="college" OnChange="Buildkey(this.selectedIndex);">
+</Select>
+<br>
+<br>
+<p>當你選擇學院後，下列選單會列出屬於該學院的所有科系</p>
+
+<SELECT id="Object">
+</Select>
+
+</Form>
+</Body>
+</Html>
+
+<SCRIPT type="text/JavaScript">
+var colleges=['商學院', '人文社會學院', '資電學院'];
+var collegeSelect=document.getElementById("college");
+var inner="";
+for(var i=0;i<colleges.length;i++){
+  inner=inner+'<option value=i>'+colleges[i]+'</option>';
+}
+collegeSelect.innerHTML=inner;
+
+key = new Array();
+
+key[0]=['會計學系', '國際經營與貿易學系', '財稅學系'];
+key[1]=['中國文學系', '外國文學系'];
+key[2]=['資訊工程學', '電機工程學系', '電子工程學系'];
+
+function Buildkey(num)
+{
+  var Sinner="";
+  for(var i = 0; i < key[num].length;i++){
+    Sinner = Sinner+'<option value=i>'+key[num][i]+'</option>';
+  }
+
+  var keySelect = document.getElementById("Object");
+  keySelect.innerHTML=Sinner;
+}
+
+Buildkey(document.getElementById("college").selectedIndex);
+
+
+</Script>
